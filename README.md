@@ -1,6 +1,6 @@
 <h1>Unfollow Everyone on the AT_Protocol (BlueSky)</h1>
 
-<p>This simple script allows you to input your handle and an app password generated from your AT protocol account to then unfollow *everyone* your follow</p>
+<p>This simple script allows you to input your handle and an app password generated from your AT protocol account to then unfollow **everyone** you follow</p>
 
 <h3>Useage</h3>
 <p>
