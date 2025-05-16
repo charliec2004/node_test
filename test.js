@@ -1,12 +1,11 @@
-// mass-unfollow.js
-const { BskyAgent } = require('@atproto/api');
+const { AtpAgent } = require('@atproto/api');
 require('dotenv').config();
 
-const handle = process.env.BSKY_HANDLE; // go to .env.example
-const appPassword = process.env.BSKY_APP_PASSWORD; // go to .env.example
+const handle = process.env.BSKY_HANDLE;
+const appPassword = process.env.BSKY_APP_PASSWORD;
 
 (async () => {
-  const agent = new BskyAgent({ service: 'https://bsky.social' });
+  const agent = new AtpAgent({ service: 'https://bsky.social' });
 
   // Log in
   await agent.login({ identifier: handle, password: appPassword });
@@ -17,7 +16,7 @@ const appPassword = process.env.BSKY_APP_PASSWORD; // go to .env.example
   let totalCount = 0;
 
   do {
-    const res = await agent.api.com.atproto.repo.listRecords({
+    const res = await agent.com.atproto.repo.listRecords({
       repo: agent.session.did,
       collection: 'app.bsky.graph.follow',
       limit: 100,
@@ -30,7 +29,7 @@ const appPassword = process.env.BSKY_APP_PASSWORD; // go to .env.example
     if (records && records.length > 0) {
       for (const record of records) {
         const rkey = record.uri.split('/').pop();
-        await agent.api.com.atproto.repo.deleteRecord({
+        await agent.com.atproto.repo.deleteRecord({
           repo: agent.session.did,
           collection: 'app.bsky.graph.follow',
           rkey,
