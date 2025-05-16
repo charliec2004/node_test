@@ -4,7 +4,9 @@
 
 <h3>Useage</h3>
 <p>
-  - Add your details to the .env file
-  - change the .env.example file to a .env file
-  - run in node.js runtime environment
+  <ul>
+  <li> Add your details to the .env file </li>
+  <li> change the .env.example file to a .env file </li>
+  <li> run in node.js runtime environment </li>
+  </ul>
 </p>
